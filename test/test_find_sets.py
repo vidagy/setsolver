@@ -2,8 +2,12 @@ from unittest import TestCase
 
 from setsolver.board import Board
 from setsolver.card import Card, GameSet
-from setsolver.properties import Fill, Color, Count, Shape
-from setsolver.set_finder import is_same_or_all_different, is_set, find_all_sets
+from setsolver.properties import Color, Count, Fill, Shape
+from setsolver.set_finder import (
+    find_all_sets,
+    is_same_or_all_different,
+    is_set,
+)
 
 
 class TestSetFinder(TestCase):
@@ -30,18 +34,52 @@ class TestSetFinder(TestCase):
         self.assertFalse(is_set(card1, card2, card3))
 
     def test_is_same_or_all_different_same(self):
-        self.assertTrue(is_same_or_all_different(Fill.FULL, Fill.EMPTY, Fill.STRIPED))
-        self.assertTrue(is_same_or_all_different(Count.ONE, Count.TWO, Count.THREE))
-        self.assertTrue(is_same_or_all_different(Color.PURPLE, Color.RED, Color.GREEN))
-        self.assertTrue(is_same_or_all_different(Shape.OVAL, Shape.WAVE, Shape.DIAMOND))
+        self.assertTrue(
+            is_same_or_all_different(Fill.FULL, Fill.EMPTY, Fill.STRIPED)
+        )
+        self.assertTrue(
+            is_same_or_all_different(Count.ONE, Count.TWO, Count.THREE)
+        )
+        self.assertTrue(
+            is_same_or_all_different(Color.PURPLE, Color.RED, Color.GREEN)
+        )
+        self.assertTrue(
+            is_same_or_all_different(Shape.OVAL, Shape.WAVE, Shape.DIAMOND)
+        )
 
-        for p in [Fill.FULL, Fill.EMPTY, Fill.STRIPED, Count.ONE, Count.TWO, Count.THREE, Color.PURPLE, Color.RED,
-                  Color.GREEN, Shape.OVAL, Shape.WAVE, Shape.DIAMOND]:
+        for p in [
+            Fill.FULL,
+            Fill.EMPTY,
+            Fill.STRIPED,
+            Count.ONE,
+            Count.TWO,
+            Count.THREE,
+            Color.PURPLE,
+            Color.RED,
+            Color.GREEN,
+            Shape.OVAL,
+            Shape.WAVE,
+            Shape.DIAMOND,
+        ]:
             self.assertTrue(is_same_or_all_different(p, p, p))
 
     def test_find_all_sets(self):
-        board = Board({self.card1, self.card2, self.card3, self.card4, self.card5, self.card6, self.card7, self.card8,
-                       self.card9, self.card10, self.card11, self.card12})
+        board = Board(
+            {
+                self.card1,
+                self.card2,
+                self.card3,
+                self.card4,
+                self.card5,
+                self.card6,
+                self.card7,
+                self.card8,
+                self.card9,
+                self.card10,
+                self.card11,
+                self.card12,
+            }
+        )
         expected_sets = [
             GameSet({self.card1, self.card2, self.card3}),
             GameSet({self.card3, self.card4, self.card5}),

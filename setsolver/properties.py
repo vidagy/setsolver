@@ -6,7 +6,7 @@ class Fill(str, Enum):
     STRIPED = "striped"
     FULL = "full"
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return self.value
 
 
@@ -15,7 +15,7 @@ class Count(str, Enum):
     TWO = "two"
     THREE = "three"
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return self.value
 
 
@@ -24,7 +24,7 @@ class Color(str, Enum):
     GREEN = "green"
     PURPLE = "purple"
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return self.value
 
 
@@ -33,5 +33,5 @@ class Shape(str, Enum):
     OVAL = "oval"
     WAVE = "wave"
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return self.value

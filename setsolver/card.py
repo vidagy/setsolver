@@ -1,7 +1,7 @@
-from typing import Set
 from dataclasses import dataclass
+from typing import Set
 
-from setsolver.properties import Fill, Count, Color, Shape
+from setsolver.properties import Color, Count, Fill, Shape
 
 
 @dataclass(frozen=True, unsafe_hash=True)
@@ -16,6 +16,6 @@ class Card:
 class GameSet:
     cards: Set[Card]
 
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         if len(self.cards) != 3:
             raise RuntimeError("GameSet must consist of 3 cards, looser")

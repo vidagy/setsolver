@@ -1,5 +1,5 @@
 from itertools import combinations
-from typing import TypeVar, List
+from typing import List, TypeVar
 
 from setsolver.board import Board
 from setsolver.card import Card, GameSet
@@ -26,7 +26,7 @@ def is_same_or_all_different(a: T, b: T, c: T) -> bool:
     return False
 
 
-def is_set(a: Card, b: Card, c: Card):
+def is_set(a: Card, b: Card, c: Card) -> bool:
     is_it_a_set = is_same_or_all_different(a.fill, b.fill, c.fill)
     if not is_it_a_set:
         return False
