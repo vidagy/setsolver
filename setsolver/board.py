@@ -1,0 +1,17 @@
+from dataclasses import dataclass
+from typing import Set
+
+from setsolver.card import Card
+
+
+@dataclass
+class Board:
+    cards: Set[Card]
+
+    @property
+    def number_of_cards(self):
+        return len(self.cards)
+
+    def __post_init__(self):
+        if len(self.cards) % 3 != 0:
+            raise RuntimeError("Board should be divisible by 3, looser")
