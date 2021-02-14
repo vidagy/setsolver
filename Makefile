@@ -1,16 +1,20 @@
-PYTHON="./venv/bin/python3"
-BIN="./venv/bin"
+PYTHON="python3"
 
 isort:
-	${BIN}/isort .
+	isort .
 
 mypy:
-	${BIN}/mypy --strict *.py setsolver/
+	mypy --strict *.py setsolver/
 
 flake8:
-	${BIN}/flake8 --exclude ./venv/ .
+	flake8 --exclude ./venv/ .
 
 black:
-	${BIN}/black . -l 79
+	black . -l 79
 
 lint: isort mypy flake8 black
+
+unit-test:
+	${PYTHON} -m unittest test
+
+test: unit-test
