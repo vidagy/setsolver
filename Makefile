@@ -15,6 +15,6 @@ black:
 lint: isort mypy flake8 black
 
 unit-test:
-	${PYTHON} -m unittest test
+	${PYTHON} -m unittest test/
 
 test: unit-test
