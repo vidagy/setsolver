@@ -5,6 +5,7 @@ class Fill(str, Enum):
     """
     Filling of a Card.
     """
+
     EMPTY = "empty"
     STRIPED = "striped"
     FULL = "full"
@@ -17,6 +18,7 @@ class Count(str, Enum):
     """
     Count of a Card.
     """
+
     ONE = "one"
     TWO = "two"
     THREE = "three"
@@ -29,6 +31,7 @@ class Color(str, Enum):
     """
     Color of a Card.
     """
+
     RED = "red"
     GREEN = "green"
     PURPLE = "purple"
@@ -41,6 +44,7 @@ class Shape(str, Enum):
     """
     Shape of a Card.
     """
+
     DIAMOND = "diamond"
     OVAL = "oval"
     WAVE = "wave"

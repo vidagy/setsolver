@@ -9,6 +9,7 @@ class Board:
     """
     Represents the boards, that contains all cards dealt on the table.
     """
+
     cards: Set[Card]
 
     @property
