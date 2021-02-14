@@ -13,7 +13,7 @@
    version="1.1"
    id="svg8"
    inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
-   sodipodi:docname="oval.svg">
+   sodipodi:docname="oval_full_purple_3.svg">
   <defs
      id="defs2">
     <pattern
@@ -41,6 +41,46 @@
            y="36.89962" />
       </g>
     </pattern>
+    <pattern
+       patternUnits="userSpaceOnUse"
+       width="165.84043"
+       height="30.432393"
+       patternTransform="translate(736.83947,73.935307)"
+       id="pattern3886">
+      <rect
+         style="fill:none;stroke:none"
+         width="165.84042"
+         height="24.508425"
+         x="0"
+         y="5.9239683"
+         id="rect3876" />
+      <g
+         id="g3884"
+         transform="matrix(3.7795276,0,0,3.7795276,-2033.9614,-360.33691)">
+        <rect
+           style="opacity:0.99;fill:#7100c5;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.885497;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect3880"
+           width="43.878613"
+           height="1.5673834"
+           x="538.15228"
+           y="95.339142"
+           ry="0" />
+        <rect
+           style="opacity:0.99;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.7;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.995287"
+           id="rect3882"
+           width="43.878613"
+           height="5.7769098"
+           x="538.15228"
+           y="97.614136"
+           ry="0" />
+      </g>
+    </pattern>
+    <inkscape:path-effect
+       effect="interpolate_points"
+       id="path-effect3718"
+       is_visible="true"
+       lpeversion="1"
+       interpolator_type="CentripetalCatmullRom" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -49,9 +89,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.979899"
-     inkscape:cx="210.64317"
-     inkscape:cy="251.55741"
+     inkscape:zoom="0.9899495"
+     inkscape:cx="-54.20542"
+     inkscape:cy="187.68958"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -88,11 +128,27 @@
        y="76.12709"
        ry="6.9703922" />
     <rect
-       style="opacity:0.99;fill:#123456;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.7;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.995287"
+       style="opacity:0.99;fill:#7100c5;fill-opacity:1;fill-rule:evenodd;stroke:#7100c5;stroke-width:1.7;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect3586"
        width="32.066811"
        height="67.000633"
        x="405.97372"
+       y="93.412849"
+       ry="16.033405" />
+    <rect
+       style="opacity:0.99;fill:#7100c5;fill-opacity:1;fill-rule:evenodd;stroke:#7100c5;stroke-width:1.7;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2521"
+       width="32.066811"
+       height="67.000633"
+       x="449.36606"
+       y="93.412849"
+       ry="16.033405" />
+    <rect
+       style="opacity:0.99;fill:#7100c5;fill-opacity:1;fill-rule:evenodd;stroke:#7100c5;stroke-width:1.7;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2558"
+       width="32.066811"
+       height="67.000633"
+       x="362.58139"
        y="93.412849"
        ry="16.033405" />
   </g>
