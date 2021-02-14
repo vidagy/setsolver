@@ -15,6 +15,12 @@ class Card:
     color: Color
     shape: Shape
 
+    def __repr__(self) -> str:
+        return (
+            f"{self.shape.value[0]}{self.fill.value[0]}"
+            f"{self.color.value[0]}{self.count.value[0]}"
+        )
+
 
 @dataclass(frozen=True, unsafe_hash=True)
 class GameSet:

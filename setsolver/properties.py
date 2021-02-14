@@ -19,9 +19,9 @@ class Count(str, Enum):
     Count of a Card.
     """
 
-    ONE = "one"
-    TWO = "two"
-    THREE = "three"
+    ONE = "1"
+    TWO = "2"
+    THREE = "3"
 
     def __repr__(self) -> str:
         return str(self.value)
