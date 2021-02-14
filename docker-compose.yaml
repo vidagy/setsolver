@@ -3,3 +3,6 @@ version: '2'
 services:
   setsolver:
     build: .
+    stdin_open: true
+    tty: true
+    command: bash

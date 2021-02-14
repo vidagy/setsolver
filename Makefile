@@ -4,13 +4,13 @@ isort:
 	isort .
 
 mypy:
-	mypy --strict *.py setsolver/
+	mypy *.py setsolver/
 
 flake8:
-	flake8 --exclude ./venv/ .
+	flake8 .
 
 black:
-	black . -l 79
+	black .
 
 lint: isort mypy flake8 black
 
