@@ -6,13 +6,16 @@ isort:
 mypy:
 	mypy *.py setsolver/
 
-flake8:
-	flake8 .
-
 black:
 	black .
 
-lint: isort mypy flake8 black
+pylint:
+	pylint *.py setsolver/
+
+flake8:
+	flake8 .
+
+lint: isort mypy black pylint flake8
 
 unit-test:
 	${PYTHON} -m unittest

@@ -1,0 +1,5 @@
+[FORMAT]
+good-names=a,b,c,T
+
+[MESSAGES CONTROL]
+disable=C0114

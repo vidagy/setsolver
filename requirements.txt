@@ -1,5 +1,6 @@
-dataclasses
-mypy
 black
+dataclasses
 flake8
 isort
+mypy
+pylint

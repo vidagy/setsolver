@@ -6,6 +6,9 @@ from setsolver.card import Card, GameSet
 
 
 def find_all_sets(board: Board) -> List[GameSet]:
+    """
+    Returns the list of all Sets on the Board.
+    """
     sets: List[GameSet] = []
     for cards in combinations(board.cards, 3):
         if is_set(*cards):
@@ -17,6 +20,9 @@ T = TypeVar("T")
 
 
 def is_same_or_all_different(a: T, b: T, c: T) -> bool:
+    """
+    Checks if three properties are all the same or are all different.
+    """
     is_same = a == b and b == c
     if is_same:
         return True
@@ -27,6 +33,9 @@ def is_same_or_all_different(a: T, b: T, c: T) -> bool:
 
 
 def is_set(a: Card, b: Card, c: Card) -> bool:
+    """
+    Checks if three cards are a Set or not.
+    """
     is_it_a_set = is_same_or_all_different(a.fill, b.fill, c.fill)
     if not is_it_a_set:
         return False
