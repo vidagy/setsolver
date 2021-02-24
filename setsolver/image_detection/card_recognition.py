@@ -5,6 +5,9 @@ import cv2
 import numpy as np
 from scipy.spatial import distance
 
+from setsolver.card import Card
+from setsolver.properties import Color, Count, Fill, Shape
+
 
 class CardRecognition:
     def __init__(self, img=None):
@@ -14,6 +17,8 @@ class CardRecognition:
         self.shape_contours = None
         self.shape_contours = []
         self.processed_for_shade = None
+        self.card_info = dict()
+        self.abstract_card = None
 
     @property
     def img(self):
@@ -43,6 +48,11 @@ class CardRecognition:
             "green": ([0, 60, 0], [90, 200, 90]),
             "purple": ([35, 0, 35], [200, 90, 150]),
         }
+        map_to_card = {
+            "red": Color.RED,
+            "green": Color.GREEN,
+            "purple": Color.PURPLE,
+        }
         for key, value in boundaries.items():
             # create NumPy arrays from the boundaries
             lower = np.array(value[0], dtype="uint8")
@@ -51,8 +61,10 @@ class CardRecognition:
             output = cv2.bitwise_and(img, self._img, mask=mask)
             colors[key] = np.count_nonzero(output)
         most_intense_color = max(colors.items(), key=lambda x: x[1])
-        print(colors)
-        return most_intense_color[0]
+        color = most_intense_color[0]
+        # print(colors)
+        self.card_info["color"] = map_to_card.get(color)
+        return color
 
     def preprocess_card(self) -> np.ndarray:
         image = self._img
@@ -131,10 +143,13 @@ class CardRecognition:
             diff = abs(int(int_averages_edge) - current_avg)
             print(f"diff: {diff}")
             if diff <= 15:
+                self.card_info["fill"] = Fill.EMPTY
                 return "empty"
             elif diff > 80:
+                self.card_info["fill"] = Fill.FULL
                 return "full"
             else:
+                self.card_info["fill"] = Fill.STRIPED
                 return "striped"
         raise RuntimeError("No shapes detected")
 
@@ -142,6 +157,7 @@ class CardRecognition:
         """
         Returns the number of cards on an image and sets the main contour
         """
+        card_map = {1: Count.ONE, 2: Count.TWO, 3: Count.THREE}
         img = self.preprocess_card()
         min_area = img.size * 0.06
         max_area = img.size * 0.9
@@ -175,6 +191,7 @@ class CardRecognition:
                 )
         # cv2.drawContours(threshold, new_cnt, -1, (255, 255, 255), 3)
         self.shape_contours = new_cnt
+        self.card_info["count"] = card_map.get(len(new_cnt))
         return len(new_cnt)
 
     def get_shape(self) -> str:
@@ -195,11 +212,34 @@ class CardRecognition:
             hu1 = new_moments[0]
             print(new_moments)
             if len(approx) == 4:
+                self.card_info["shape"] = Shape.DIAMOND
                 return "diamond"
             if hu1 < 0.62:
+                self.card_info["shape"] = Shape.WAVE
                 return "wave"
             elif 0.62 <= hu1 < 0.669:
+                self.card_info["shape"] = Shape.DIAMOND
                 return "diamond"
             elif hu1 >= 0.669:
+                self.card_info["shape"] = Shape.OVAL
                 return "oval"
         raise RuntimeError("No shapes detected")
+
+    def create_card(self) -> None:
+        fill = self.card_info.get("fill")
+        count = self.card_info.get("count")
+        color = self.card_info.get("color")
+        shape = self.card_info.get("shape")
+        if all([fill, count, color, shape]):
+            card = Card(fill, count, color, shape)
+        else:
+            card = None
+        self.abstract_card = card
+        return card
+
+    def process_all_properties(self):
+        self.get_number_of_shapes()
+        self.get_color()
+        self.get_shape()
+        self.get_fill()
+        self.create_card()
