@@ -4,3 +4,10 @@ flake8
 isort
 mypy
 pylint
+opencv-python
+matplotlib
+imutils
+numpy
+scipy
+kivy[base]
+kivy_examples
