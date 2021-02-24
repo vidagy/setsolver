@@ -1,5 +1,5 @@
 import math
-from typing import Any, List
+from typing import Any, List, Optional
 
 import cv2
 import numpy as np
@@ -225,13 +225,13 @@ class CardRecognition:
                 return "oval"
         raise RuntimeError("No shapes detected")
 
-    def create_card(self) -> None:
+    def create_card(self) -> Optional[Card]:
         fill = self.card_info.get("fill")
         count = self.card_info.get("count")
         color = self.card_info.get("color")
         shape = self.card_info.get("shape")
         if all([fill, count, color, shape]):
-            card = Card(fill, count, color, shape)
+            card: Optional[Card] = Card(fill, count, color, shape)
         else:
             card = None
         self.abstract_card = card
